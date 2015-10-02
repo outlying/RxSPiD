@@ -4,6 +4,8 @@ import com.spid.android.sdk.SPiDClient;
 import com.spid.android.sdk.listener.SPiDRequestListener;
 import com.spid.android.sdk.response.SPiDResponse;
 
+import rx.Observable;
+
 /**
  * Main wrapper for SPiD client
  */
@@ -15,18 +17,7 @@ public class RxSPiD {
         this.sPiDClient = sPiDClient;
     }
 
-    public void getCurrentUser() {
-
-        sPiDClient.getCurrentUser( new SPiDRequestListener() {
-            @Override
-            public void onComplete( SPiDResponse result ) {
-
-            }
-
-            @Override
-            public void onError( Exception exception ) {
-
-            }
-        } );
+    public Observable<SPiDResponse> getCurrentUser() {
+        return new SPiDRequestObservable( sPiDClient );
     }
 }

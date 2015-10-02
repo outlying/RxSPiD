@@ -5,6 +5,7 @@ import com.spid.android.sdk.listener.SPiDRequestListener;
 import com.spid.android.sdk.response.SPiDResponse;
 
 import rx.Observable;
+import rx.Observer;
 import rx.Subscriber;
 
 /**
@@ -36,5 +37,7 @@ public class SPiDRequestObservable implements Observable.OnSubscribe<SPiDRespons
         };
 
         sPiDClient.getCurrentUser( sPiDRequestListener );
+
+        Observer<>
     }
 }
